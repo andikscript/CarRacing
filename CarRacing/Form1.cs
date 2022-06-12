@@ -17,28 +17,57 @@ namespace CarRacing
             switch (e.KeyCode)
             {
                 case Keys.Up:
+                    up.Image = Properties.Resources.up1;
                     if ((MyCar.Top - 370) > 0)
                     {
                         MyCar.Top -= 12;
                     }
                     break;
                 case Keys.Down:
+                    down.Image = Properties.Resources.down1;
                     if ((MyCar.Bottom + 10) < (this.Height - MyCar.Height))
                     {
                         MyCar.Top += 12;
                     }
                     break;
                 case Keys.Right:
+                    right.Image = Properties.Resources.right1;
                     if ((MyCar.Left + 10) < (this.Width - MyCar.Width))
                     {
                         MyCar.Left += 12;
                     }
                     break;
                 case Keys.Left:
+                    left.Image = Properties.Resources.left1;
                     if ((MyCar.Left - 10) > 0)
                     {
                         MyCar.Left -= 12;
                     }
+                    break;
+                case Keys.R:
+                    StartGame();
+                    break;
+                case Keys.E:
+                    Environment.Exit(0);
+                    break;
+            }
+        }
+
+        private void KeyIsUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    up.Image = Properties.Resources.up2;
+                    break;
+                case Keys.Down:
+                    down.Image = Properties.Resources.down2;
+                    break;
+                case Keys.Right:
+                    right.Image = Properties.Resources.right2;
+                    break;
+                case Keys.Left:
+                    left.Image = Properties.Resources.left2;
                     break;
             }
         }
@@ -97,7 +126,7 @@ namespace CarRacing
             if (MyCar.Bounds.IntersectsWith(car1.Bounds) || MyCar.Bounds.IntersectsWith(car2.Bounds)
                 || MyCar.Bounds.IntersectsWith(car3.Bounds) || MyCar.Bounds.IntersectsWith(car4.Bounds))
             {
-                gameTimer.Stop();
+                EndGame();
             }
 
             if (score > 50)
@@ -111,6 +140,29 @@ namespace CarRacing
             }
         }
 
+        private void EndGame()
+        {
+            labelScore.Text = "Score : " + score.ToString() + " Game Over !!!";
+            gameTimer.Stop();
+            pipeSpeed1 = 4;
+            pipeSpeed2 = 8;
+            pipeSpeed3 = 1;
+            score = 0;
+        }
+
+        private void StartGame()
+        {
+            gameTimer.Start();
+            MyCar.Location = new Point(17,368);
+            car1.Location = new Point(507, 366);
+            car2.Location = new Point(812,414);
+            car3.Location = new Point(1059,366);
+            car4.Location = new Point(1275,408);
+            cloud1.Location = new Point(547,23);
+            cloud2.Location = new Point(843,60);
+            cloud3.Location = new Point(245,68);
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // untuk mengatur agar picturebox transparent nya pada picturebox lain 
@@ -118,6 +170,12 @@ namespace CarRacing
             cloud1.Parent = backgroundImage;
             cloud2.Parent = backgroundImage;
             cloud3.Parent = backgroundImage;
+            up.Parent = backgroundImage;
+            down.Parent = backgroundImage;
+            circle.Parent = backgroundImage;
+            right.Parent = backgroundImage;
+            left.Parent = backgroundImage;
+            ket.Parent = backgroundImage;
         }
     }
 }

@@ -51,6 +51,12 @@
             this.cloud1 = new System.Windows.Forms.PictureBox();
             this.cloud2 = new System.Windows.Forms.PictureBox();
             this.cloud3 = new System.Windows.Forms.PictureBox();
+            this.up = new System.Windows.Forms.PictureBox();
+            this.down = new System.Windows.Forms.PictureBox();
+            this.circle = new System.Windows.Forms.PictureBox();
+            this.right = new System.Windows.Forms.PictureBox();
+            this.left = new System.Windows.Forms.PictureBox();
+            this.ket = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MyCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.car1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.car2)).BeginInit();
@@ -71,6 +77,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.up)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.down)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.right)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.left)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ket)).BeginInit();
             this.SuspendLayout();
             // 
             // MyCar
@@ -287,6 +299,72 @@
             this.cloud3.TabIndex = 21;
             this.cloud3.TabStop = false;
             // 
+            // up
+            // 
+            this.up.BackColor = System.Drawing.Color.Transparent;
+            this.up.Image = global::CarRacing.Properties.Resources.up2;
+            this.up.Location = new System.Drawing.Point(55, 45);
+            this.up.Name = "up";
+            this.up.Size = new System.Drawing.Size(12, 27);
+            this.up.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.up.TabIndex = 22;
+            this.up.TabStop = false;
+            // 
+            // down
+            // 
+            this.down.BackColor = System.Drawing.Color.Transparent;
+            this.down.Image = global::CarRacing.Properties.Resources.down2;
+            this.down.Location = new System.Drawing.Point(55, 106);
+            this.down.Name = "down";
+            this.down.Size = new System.Drawing.Size(12, 27);
+            this.down.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.down.TabIndex = 23;
+            this.down.TabStop = false;
+            // 
+            // circle
+            // 
+            this.circle.BackColor = System.Drawing.Color.Transparent;
+            this.circle.Image = global::CarRacing.Properties.Resources.circle;
+            this.circle.Location = new System.Drawing.Point(49, 77);
+            this.circle.Name = "circle";
+            this.circle.Size = new System.Drawing.Size(24, 24);
+            this.circle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.circle.TabIndex = 24;
+            this.circle.TabStop = false;
+            // 
+            // right
+            // 
+            this.right.BackColor = System.Drawing.Color.Transparent;
+            this.right.Image = global::CarRacing.Properties.Resources.right2;
+            this.right.Location = new System.Drawing.Point(79, 84);
+            this.right.Name = "right";
+            this.right.Size = new System.Drawing.Size(28, 12);
+            this.right.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.right.TabIndex = 25;
+            this.right.TabStop = false;
+            // 
+            // left
+            // 
+            this.left.BackColor = System.Drawing.Color.Transparent;
+            this.left.Image = global::CarRacing.Properties.Resources.left2;
+            this.left.Location = new System.Drawing.Point(16, 84);
+            this.left.Name = "left";
+            this.left.Size = new System.Drawing.Size(27, 12);
+            this.left.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.left.TabIndex = 26;
+            this.left.TabStop = false;
+            // 
+            // ket
+            // 
+            this.ket.BackColor = System.Drawing.Color.Transparent;
+            this.ket.Image = global::CarRacing.Properties.Resources.ket;
+            this.ket.Location = new System.Drawing.Point(14, 150);
+            this.ket.Name = "ket";
+            this.ket.Size = new System.Drawing.Size(88, 33);
+            this.ket.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ket.TabIndex = 27;
+            this.ket.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -294,8 +372,15 @@
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(797, 448);
-            this.Controls.Add(this.labelScore);
+            this.ControlBox = false;
+            this.Controls.Add(this.ket);
+            this.Controls.Add(this.left);
+            this.Controls.Add(this.right);
+            this.Controls.Add(this.up);
             this.Controls.Add(this.cloud3);
+            this.Controls.Add(this.circle);
+            this.Controls.Add(this.down);
+            this.Controls.Add(this.labelScore);
             this.Controls.Add(this.cloud2);
             this.Controls.Add(this.cloud1);
             this.Controls.Add(this.car4);
@@ -315,11 +400,13 @@
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Car Racing Game";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.MyCar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.car1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.car2)).EndInit();
@@ -340,6 +427,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.up)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.down)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.right)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.left)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ket)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,5 +461,11 @@
         private PictureBox cloud1;
         private PictureBox cloud2;
         private PictureBox cloud3;
+        private PictureBox up;
+        private PictureBox down;
+        private PictureBox circle;
+        private PictureBox right;
+        private PictureBox left;
+        private PictureBox ket;
     }
 }
